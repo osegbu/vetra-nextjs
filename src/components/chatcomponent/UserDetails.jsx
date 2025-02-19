@@ -8,8 +8,8 @@ const UserDetails = () => {
   const { state, closeChat } = useStore();
 
   const user = useMemo(
-    () => state.Users.find((user) => user.id === state.userID),
-    [state.userID, state.Users]
+    () => state.fullUserList.find((user) => user.id === state.userID),
+    [state.userID, state.fullUserList]
   );
 
   useEffect(() => {

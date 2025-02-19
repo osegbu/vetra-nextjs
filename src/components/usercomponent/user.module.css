@@ -79,7 +79,7 @@
 }
 .lastTime {
   color: var(--textSoft);
-  font-size: 0.85rem;
+  font-size: 12.5px;
 }
 .imageContainer {
   width: 42px;

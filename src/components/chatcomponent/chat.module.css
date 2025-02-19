@@ -80,12 +80,16 @@
 }
 .chatTime {
   color: var(--textSoft);
-  font-size: 13px;
+  font-size: 12.5px;
   width: 100%;
   align-items: center;
   display: flex;
   gap: 4px;
   justify-content: flex-end;
+  margin-top: 6px;
+}
+.chatTime svg {
+  margin-top: -2px;
 }
 .chatImageWrapper {
   width: 600px;
@@ -258,14 +262,5 @@
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 420px) {
-  .chatTime {
-    margin-top: 5px;
-  }
-  .chatTime svg {
-    margin-top: -2px;
   }
 }

@@ -57,7 +57,7 @@ const Chats = () => {
     }
   };
 
-  const user = state.Users.find((user) => state.userID == user.id);
+  const user = state.fullUserList.find((user) => state.userID == user.id);
   const filteredChat =
     user?.chats?.sort(
       (a, b) => new Date(a.created_at) - new Date(b.created_at)
@@ -80,6 +80,10 @@ const Chats = () => {
 
   const groupedMessages = groupMessagesByDate();
 
+  const customLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
+
   return (
     <div className={styles.msgContainer}>
       <div style={{ display: "flow-root" }}>
@@ -100,15 +104,15 @@ const Chats = () => {
                 {message.image && (
                   <div className={styles.chatImageWrapper}>
                     <Image
-                      placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAABAklEQVR4nO3RQREAIRDAsOP8C1tX8EYBfSQKOtM1M/sj438dwM2QGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDIkxJMaQGENiDg4LBB+8RC3tAAAAAElFTkSuQmCC"
+                      loader={customLoader}
                       src={
                         message.id
                           ? `${BASE_URL}/static/chat/${message.image}`
                           : message.image
                       }
                       alt="Chat Image"
-                      width={200}
-                      height={200}
+                      width={640}
+                      height={213}
                       objectFit="contain"
                       priority
                     />

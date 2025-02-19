@@ -117,8 +117,8 @@ const UserComponent = ({ connectionStatus }) => {
                           (lastChat?.status === "sent" ? (
                             <svg
                               viewBox="0 0 18 18"
-                              height="18"
-                              width="18"
+                              height="16"
+                              width="16"
                               preserveAspectRatio="xMidYMid meet"
                               version="1.1"
                             >
@@ -155,7 +155,7 @@ const UserComponent = ({ connectionStatus }) => {
             );
           })
         ) : (
-          <div>No User Found</div>
+          <div className={styles.no_user}>No User Found</div>
         )}
       </div>
     </div>
