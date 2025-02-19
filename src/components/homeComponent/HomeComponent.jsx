@@ -1,6 +1,6 @@
 "use client";
 import { useStore } from "@/lib/StoreContext";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import UserComponent from "../usercomponent/UserComponent";
 import ChatComponent from "../chatcomponent/ChatComponent";
 import useWebSocket from "@/app/websocket/Websocket";
@@ -46,9 +46,11 @@ const HomeComponent = () => {
 
   const { connect, sendMessage, connectionStatus } = useWebSocket();
 
+  const hasRun = useRef(false);
   useEffect(() => {
-    if (connectionStatus !== "Connected" && state.auth.id) {
+    if (!hasRun.current && connectionStatus !== "Connected" && state.auth.id) {
       connect();
+      hasRun.current = true;
     }
   }, [state.auth.id, connect, connectionStatus]);
 

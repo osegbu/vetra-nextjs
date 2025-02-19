@@ -156,12 +156,11 @@ const useWebSocket = () => {
     }
 
     if (socketRef.current) {
-      console.log("WebSocket connection already established");
       return;
     }
 
     setConnectionStatus("Connecting...");
-    const socket = new WebSocket(`wss:${state.auth.id}`);
+    const socket = new WebSocket(`${WS_URL}/${state.auth.id}`);
     socketRef.current = socket;
 
     socket.onopen = () => {
