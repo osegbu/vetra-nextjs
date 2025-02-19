@@ -34,13 +34,13 @@ const ChatComponent = ({ sendMessage }) => {
             className={styles.closeUploadContainer}
             onClick={() => setIsImageOpen(false)}
           >
-            <Image src={cancel} alt="Cancel Button" width={12} height={12} />
             <svg
               viewBox="0 0 24 24"
               width="18"
               height="18"
               fill="white"
               aria-hidden="true"
+              style={{ marginTop: "5px" }}
             >
               <g>
                 <path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path>
