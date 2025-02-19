@@ -158,19 +158,6 @@ const UserComponent = ({ connectionStatus }) => {
           <div>No User Found</div>
         )}
       </div>
-      <div className={styles.authUser}>
-        <Image
-          src={`${BASE_URL}/static/profile/${state.auth.profile_image}`}
-          width={42}
-          height={42}
-          alt={`${state.auth.user_name}'s profile picture`}
-          priority
-        />
-        <div>
-          <div className={styles.user_name}>{state.auth.user_name}</div>
-          <div>{connectionStatus}</div>
-        </div>
-      </div>
     </div>
   );
 };

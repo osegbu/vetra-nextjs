@@ -139,21 +139,6 @@
   line-height: 18px;
   font-size: 13px;
 }
-.authUser {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
-  font-size: 0.85rem;
-  text-transform: capitalize;
-  border-top: 1px solid #414141;
-}
-.authUser .user_name {
-  font-size: 0.95rem;
-  font-weight: bold;
-}
-.authUser img {
-  border-radius: 50%;
-}
 @media (max-width: 767px) {
   .container {
     width: 100%;
@@ -173,6 +158,10 @@
 @media (max-width: 420px) {
   .unread {
     line-height: 20px;
+    margin-top: -2px;
+  }
+
+  .lastMsg svg {
     margin-top: -2px;
   }
 }
