@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "54.175.214.30",
+        protocol: "https",
+        hostname: "https://vetra-nextjs.vercel.app",
       },
       {
         protocol: "http",
