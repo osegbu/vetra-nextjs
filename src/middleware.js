@@ -17,13 +17,11 @@ export async function middleware(request) {
   }
 
   try {
-    console.log("Verifying session with backend...");
     const authUser = await axios.get(`${BASE_URL}/users/me`, {
       headers: { Authorization: `Bearer ${sessionCookie.value}` },
     });
 
     if (authUser) {
-      console.log("Session verified, proceeding with request.");
       const response = NextResponse.next();
 
       const encodedMessage = Buffer.from(
@@ -33,11 +31,10 @@ export async function middleware(request) {
       response.headers.set("x-auth-user", encodedMessage);
       return response;
     } else {
-      console.log("Session invalid, redirecting to login.");
       return NextResponse.redirect(new URL("/login", request.url));
     }
   } catch (error) {
-    console.log("Error verifying session, redirecting to login:", error);
+    console.log(error);
     return NextResponse.redirect(new URL("/login", request.url));
   }
 }
