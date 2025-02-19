@@ -1,0 +1,178 @@
+.container {
+  width: 320px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-right: 1px solid #414141;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.noUsers {
+  text-align: center;
+  color: whitesmoke;
+  font-style: italic;
+  margin-top: 16px;
+}
+.title {
+  padding: 16px;
+  margin: 0;
+  font-size: 1.5rem;
+}
+.searchEl {
+  padding: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #414141;
+}
+.searchEl input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 1rem;
+  outline: 0.13rem solid rgba(255, 255, 255, 0.2);
+}
+.userList {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
+.userList:hover {
+  overflow-y: auto;
+}
+.eachUser {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #414141;
+  cursor: pointer;
+}
+.eachUser:last-child {
+  border-bottom: none;
+}
+.eachUser .username {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-right: 5px;
+}
+.lastMessage {
+  color: var(--textSoft);
+  display: block;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.lastMsg {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+  margin-right: 3px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.lastTime {
+  color: var(--textSoft);
+  font-size: 0.85rem;
+}
+.imageContainer {
+  width: 42px;
+  height: 42px;
+  position: relative;
+}
+.imageContainer img {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.onlineIndicator {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: green;
+  border: 1px solid white;
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+}
+.offlineIndicator {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #808088;
+  border: 1px solid white;
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+}
+.imageCover {
+  width: 160px;
+  height: 160px;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.flexRight {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 42px;
+}
+
+.flexRight > *:only-child {
+  margin: auto 0;
+}
+.unread {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #134d37;
+  text-align: center;
+  line-height: 18px;
+  font-size: 13px;
+}
+.authUser {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  border-top: 1px solid #414141;
+}
+.authUser .user_name {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.authUser img {
+  border-radius: 50%;
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    border: none;
+  }
+  .collapse {
+    display: none;
+  }
+}
+.connectionStatus {
+  font-size: 0.85rem;
+  color: var(--textSoft);
+  padding: 0px 16px;
+  margin-top: -12px;
+}
+
+@media (max-width: 420px) {
+  .unread {
+    line-height: 20px;
+    margin-top: -2px;
+  }
+}
