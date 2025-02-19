@@ -161,7 +161,7 @@ const useWebSocket = () => {
     }
 
     setConnectionStatus("Connecting...");
-    const socket = new WebSocket(`ws://${WS_URL}/ws/${state.auth.id}`);
+    const socket = new WebSocket(`wss:${state.auth.id}`);
     socketRef.current = socket;
 
     socket.onopen = () => {
