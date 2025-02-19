@@ -3,7 +3,6 @@ import styles from "./chat.module.css";
 import ChatInputField from "./ChatInputField";
 import UserDetails from "./UserDetails";
 import Image from "next/image";
-import cancel from "@/icons/x-button.png";
 import { useStore } from "@/lib/StoreContext";
 import Chats from "./Chats";
 
