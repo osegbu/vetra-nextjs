@@ -33,7 +33,7 @@ export async function middleware(request) {
       response.headers.set("x-auth-user", encodedMessage);
       return response;
     } else {
-      return NextResponse.redirect(new URL("/login", request.url));
+      // return NextResponse.redirect(new URL("/login", request.url));
     }
   } catch (error) {
     console.log(error);
