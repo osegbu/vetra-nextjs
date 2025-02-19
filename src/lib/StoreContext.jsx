@@ -104,8 +104,12 @@ const StoreContext = createContext();
 
 export const StoreProvider = ({ children, authUser }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const sound = new Audio("/notification.mp3");
-  sound.volume = 0.7;
+  const sound =
+    typeof window !== "undefined" ? new Audio("/notification.mp3") : null;
+
+  if (sound) {
+    sound.volume = 0.7;
+  }
 
   useEffect(() => {
     if (authUser) {

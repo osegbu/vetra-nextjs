@@ -34,7 +34,6 @@ export async function middleware(request) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
   } catch (error) {
-    console.log(error);
     return NextResponse.redirect(new URL("/login", request.url));
   }
 }
