@@ -13,7 +13,6 @@ const initialState = {
   userID: null,
   Users: [],
   fullUserList: [],
-  Chats: [],
   typing: {},
   pageLoad: false,
 };
@@ -25,16 +24,6 @@ const reducer = (state, action) => {
 
     case "UPDATE_USER_LIST":
       return { ...state, Users: action.payload, fullUserList: action.payload };
-
-    case "UPDATE_UNREAD":
-      const updated = state.Users.map((user) => {
-        if (user.id === action.payload && state.userID !== action.payload) {
-          const unread = (user.unread ?? 0) + 1;
-          return { ...user, unread };
-        }
-        return user;
-      });
-      return { ...state, Users: updated, fullUserList: updated };
 
     case "UPDATE_CHAT_LIST":
       const updatedChatList = state.Users.map((user) => {
@@ -58,8 +47,23 @@ const reducer = (state, action) => {
     case "ADD_CHAT":
       const addChat = state.Users.map((user) => {
         if (user.id === action.user_id) {
-          const updatedChats = [...user.chats, action.chat];
-          return { ...user, chats: updatedChats };
+          const chatExists = user.chats.some(
+            (chat) => chat.uuid === action.chat.uuid
+          );
+
+          if (!chatExists) {
+            const updatedChats = [...user.chats, action.chat];
+            const unread =
+              state.userID !== action.user_id
+                ? (user.unread ?? 0) + 1
+                : user.unread;
+
+            if (state.userID !== action.user_id) {
+              sound.play();
+            }
+
+            return { ...user, chats: updatedChats, unread };
+          }
         }
         return user;
       });
@@ -200,7 +204,6 @@ export const StoreProvider = ({ children, authUser }) => {
         updateUserList,
         updateUserChat,
         addChat,
-        updateUnread,
         openChat,
         closeChat,
         onStatusUpdate,

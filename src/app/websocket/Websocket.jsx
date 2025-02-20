@@ -10,14 +10,8 @@ import { useStore } from "@/lib/StoreContext";
 const WS_URL = process.env.NEXT_PUBLIC_WS_URL;
 
 const useWebSocket = () => {
-  const {
-    state,
-    updateUserChat,
-    addChat,
-    updateUnread,
-    onTyping,
-    onStatusUpdate,
-  } = useStore();
+  const { state, updateUserChat, addChat, onTyping, onStatusUpdate } =
+    useStore();
   const [connectionStatus, setConnectionStatus] = useState("Disconnected");
   const socketRef = useRef(null);
   const reconnectIntervalRef = useRef(null);
@@ -118,7 +112,6 @@ const useWebSocket = () => {
 
       if (message.type === "chat") {
         addChat(message, message.sender_id);
-        updateUnread(message.sender_id);
       }
 
       if (message.type === "msg_update") {
@@ -137,7 +130,7 @@ const useWebSocket = () => {
         onTyping(message);
       }
     },
-    [updateUserChat, state.auth.id, updateUnread]
+    [updateUserChat, state.auth.id, addChat, onStatusUpdate]
   );
 
   const connect = useCallback(() => {
