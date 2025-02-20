@@ -52,12 +52,9 @@ const ChatComponent = ({ sendMessage }) => {
               <Image
                 src={imagePreviewSrc}
                 alt="Selected Image"
-                fill
-                style={{
-                  objectFit: "contain",
-                  maxHeight: "100%",
-                  maxWidth: "100%",
-                }}
+                width={640}
+                height={213}
+                priority
               />
             </div>
           )}

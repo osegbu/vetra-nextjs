@@ -10,7 +10,15 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
-
+.postImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #414141;
+  z-index: 1;
+}
 .uploadImageContainer {
   position: absolute;
   height: 100%;
@@ -23,7 +31,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .imagePreviewWrapper {
   position: relative;
   width: 100%;
@@ -32,7 +39,11 @@
   justify-content: center;
   align-items: center;
 }
-
+.imagePreviewWrapper img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
 .closeUploadContainer {
   position: absolute;
   top: 10px;
@@ -51,8 +62,10 @@
   font-size: 14px;
   color: rgb(0, 255, 0);
 }
+.chatContent {
+  padding: 8px 12px;
+}
 .senderChat {
-  padding: 8px;
   border-radius: 8px;
   background-color: #134d37;
   width: fit-content;
@@ -72,7 +85,6 @@
   margin-left: 0;
   margin-right: auto;
   margin-bottom: 8px;
-  padding: 8px;
   border-radius: 8px;
   border-top-left-radius: 0px;
   background-color: #1f2c34;
@@ -94,13 +106,11 @@
 .chatImageWrapper {
   width: 600px;
   max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 8px;
   overflow: hidden;
   position: relative;
 }
 .chatImageWrapper img {
-  margin-bottom: -4px;
+  object-fit: contain;
   width: 100%;
   height: auto;
 }

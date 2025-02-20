@@ -20,19 +20,18 @@
   font-size: 1.5rem;
 }
 .searchEl {
-  padding: 8px;
+  padding: 0 8px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #414141;
 }
 .searchEl input {
   border: none;
   outline: none;
   width: 100%;
-  padding: 12px 16px;
-  border-radius: 40px;
+  padding: 8px 12px 12px 12px;
+  line-height: 0px;
+  border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.6);
-  font-size: 1rem;
-  outline: 0.13rem solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
 }
 .userList {
   height: 100%;
@@ -57,12 +56,11 @@
   text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1rem;
+  font-size: 1.05rem;
   text-transform: capitalize;
   margin-right: 5px;
 }
 .lastMessage {
-  color: var(--textSoft);
   display: block;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -71,19 +69,20 @@
   text-wrap: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.9rem;
+  font-size: 12.5px;
   margin-right: 3px;
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
+  color: var(--textSoft);
 }
 .lastTime {
   color: var(--textSoft);
   font-size: 12.5px;
 }
 .imageContainer {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   position: relative;
 }
 .imageContainer img {
@@ -97,7 +96,7 @@
   background-color: green;
   border: 1px solid white;
   position: absolute;
-  bottom: 2px;
+  bottom: 4px;
   right: 0;
 }
 .offlineIndicator {
@@ -107,7 +106,7 @@
   background-color: #808088;
   border: 1px solid white;
   position: absolute;
-  bottom: 2px;
+  bottom: 4px;
   right: 0;
 }
 .imageCover {
@@ -123,8 +122,8 @@
   overflow: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 42px;
+  justify-content: space-around;
+  min-height: 48px;
 }
 
 .flexRight > *:only-child {
@@ -139,6 +138,22 @@
   line-height: 18px;
   font-size: 13px;
 }
+.connectionStatus {
+  color: var(--textSoft);
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.connectionStatus svg {
+  flex-shrink: 0;
+}
+.note {
+  color: var(--textSoft);
+  font-size: 12.5px;
+  margin-top: 5px;
+}
 @media (max-width: 767px) {
   .container {
     width: 100%;
@@ -148,20 +163,10 @@
     display: none;
   }
 }
-.connectionStatus {
-  font-size: 0.85rem;
-  color: var(--textSoft);
-  padding: 0px 16px;
-  margin-top: -12px;
-}
 
 @media (max-width: 420px) {
   .unread {
     line-height: 20px;
-    margin-top: -2px;
-  }
-
-  .lastMsg svg {
     margin-top: -2px;
   }
 }
