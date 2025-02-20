@@ -176,7 +176,6 @@ const useWebSocket = () => {
       heartbeatRef.current = startHeartbeat(
         socketRef,
         missedPingCountRef,
-        state.auth.id,
         PING_INTERVAL,
         MAX_MISSED_PINGS
       );
